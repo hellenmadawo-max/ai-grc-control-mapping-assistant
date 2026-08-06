@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS controls (
     category            TEXT,                  -- function/domain, e.g. "Protect"
     keywords            TEXT,                  -- comma-separated tags used by the mapping engine
     evidence_requirements TEXT,
-    testing_procedures  TEXT
+    testing_procedures  TEXT,
+    entry_type          TEXT DEFAULT 'control' -- 'control' | 'threat' (OWASP) | 'attack_technique' (MITRE) | 'legal_requirement' (EU AI Act)
 );
 
 CREATE TABLE IF NOT EXISTS control_relationships (

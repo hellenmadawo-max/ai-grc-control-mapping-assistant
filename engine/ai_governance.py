@@ -90,9 +90,9 @@ def map_to_frameworks(dimension_ratings: dict) -> dict:
     """Ties each risk dimension back to the relevant NIST AI RMF function
     and ISO/IEC 42001 clause area, for audit traceability."""
     return {
-        "privacy_risk": {"NIST AI RMF": "MAP 1.1, MEASURE 2.9 (Privacy)", "ISO/IEC 42001": "Clause 8 (Operational Planning), Annex A.7 (Data for AI systems)"},
-        "security_risk": {"NIST AI RMF": "MEASURE 2.7 (Security & Resilience)", "ISO/IEC 42001": "Annex A.6 (Data), Annex A.9 (Third-party/supplier)"},
-        "bias_risk": {"NIST AI RMF": "MEASURE 2.11 (Fairness), MANAGE 2.2", "ISO/IEC 42001": "Annex A.5 (Impact assessment)"},
-        "explainability_risk": {"NIST AI RMF": "MEASURE 2.9 (Explainability & Interpretability)", "ISO/IEC 42001": "Clause 7.4 (Communication), Annex A.6"},
-        "accountability_risk": {"NIST AI RMF": "GOVERN 1.1, GOVERN 4.1 (Human oversight)", "ISO/IEC 42001": "Clause 5 (Leadership), Annex A.4 (Roles/responsibilities)"},
+        "privacy_risk": {"NIST AI RMF": "MAP 1.1, MEASURE 2.9 (Privacy)", "ISO/IEC 42001": "Clause 8 (Operational Planning), Annex A.7 (Data for AI systems)", "EU AI Act": "Article 10 (Data and Data Governance)"},
+        "security_risk": {"NIST AI RMF": "MEASURE 2.7 (Security & Resilience)", "ISO/IEC 42001": "Annex A.6 (Data), Annex A.9 (Third-party/supplier)", "EU AI Act": "Article 15 (Accuracy, Robustness and Cybersecurity)"},
+        "bias_risk": {"NIST AI RMF": "MEASURE 2.11 (Fairness), MANAGE 2.2", "ISO/IEC 42001": "Annex A.5 (Impact assessment)", "EU AI Act": "Article 10 (Data and Data Governance — bias examination)"},
+        "explainability_risk": {"NIST AI RMF": "MEASURE 2.9 (Explainability & Interpretability)", "ISO/IEC 42001": "Clause 7.4 (Communication), Annex A.6", "EU AI Act": "Article 13 (Transparency and Provision of Information to Users)"},
+        "accountability_risk": {"NIST AI RMF": "GOVERN 1.1, GOVERN 4.1 (Human oversight)", "ISO/IEC 42001": "Clause 5 (Leadership), Annex A.4 (Roles/responsibilities)", "EU AI Act": "Article 14 (Human Oversight)"},
     }

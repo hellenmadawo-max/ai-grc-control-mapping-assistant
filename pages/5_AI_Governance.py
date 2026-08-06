@@ -42,7 +42,8 @@ if submitted:
     st.subheader("Risk Dimension Summary")
     st.dataframe(
         [{"Dimension": DIMENSION_LABELS[k], "Rating": v,
-          "NIST AI RMF": fw_map[k]["NIST AI RMF"], "ISO/IEC 42001": fw_map[k]["ISO/IEC 42001"]}
+          "NIST AI RMF": fw_map[k]["NIST AI RMF"], "ISO/IEC 42001": fw_map[k]["ISO/IEC 42001"],
+          "EU AI Act": fw_map[k]["EU AI Act"]}
          for k, v in ratings.items()],
         use_container_width=True, hide_index=True
     )

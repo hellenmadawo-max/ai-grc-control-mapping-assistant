@@ -4,7 +4,7 @@ An AI-powered platform that helps security, risk, and compliance teams map cyber
 controls across multiple frameworks, identify gaps, score risk, and govern AI systems —
 built as a working demonstration of GRC automation for enterprise environments.
 
-**Built by:** Hellen | Sr. Compliance Analyst, Banking & Fintech GRC
+**Built by:** Heidi | Sr. Compliance Analyst, Banking & Fintech GRC
 **Target roles this project is designed to demonstrate readiness for:** AI Governance Analyst,
 AI Risk Analyst, GRC Automation Engineer, Cybersecurity Risk Analyst
 
@@ -22,7 +22,12 @@ aren't auditable, and can't be reused across engagements.
 
 This application automates the core GRC workflow end-to-end:
 
-1. **Control Repository** — a normalized, cross-framework control database
+1. **Control Repository** — a normalized, cross-framework database spanning 11 frameworks:
+   NIST CSF 2.0, NIST SP 800-53 Rev5, ISO/IEC 27001:2022, PCI DSS 4.0, SOC 2 TSC (traditional
+   controls), OWASP LLM Top 10, OWASP API Top 10, OWASP Web Top 10, MITRE ATT&CK, MITRE ATLAS
+   (threats and attack techniques), and the EU AI Act (legal requirements) — each entry tagged
+   with an `entry_type` (control / threat / attack_technique / legal_requirement) so threats and
+   attack techniques can be traced to the traditional controls that mitigate them
 2. **AI Mapping Engine** — takes free text (a requirement, policy, procedure, or vendor
    questionnaire response) and recommends the controls it satisfies, with a confidence score
    and an explainable rationale
@@ -159,13 +164,26 @@ pytest tests/ -v
 
 ## Framework Coverage (Sample Dataset)
 
-The seed dataset includes 55 representative controls (not an exhaustive reproduction of any
-standard) across 10 common control domains, each expressed in all five frameworks:
+The seed dataset includes 92 representative entries (not an exhaustive reproduction of any
+standard):
 
+**Traditional controls (55)** across 10 common control domains, each expressed in all five
+core frameworks (NIST CSF 2.0, NIST 800-53 Rev5, ISO 27001:2022, PCI DSS 4.0, SOC 2 TSC):
 Access Control/MFA · Account Lifecycle Management · Encryption/Data Protection ·
 Logging & Monitoring · Vulnerability/Patch Management · Incident Response ·
 Third-Party/Vendor Risk · Data Classification & Handling · Security Awareness Training ·
 Business Continuity/DR
+
+**Threats (20)** from OWASP LLM Top 10, OWASP API Top 10, and OWASP Web Top 10 — tagged so
+they cross-reference the traditional control(s) that mitigate them (e.g. OWASP Web "Broken
+Access Control" links to the same `access_control_mfa` theme as NIST 800-53 AC-2).
+
+**Attack techniques (11)** from MITRE ATT&CK (enterprise) and MITRE ATLAS (AI/ML-specific),
+representing how adversaries actually operate against the controls above.
+
+**Legal requirements (6)** from the EU AI Act (Articles 6, 9, 10, 13, 14, 15), each mapped
+in the AI Governance module to its corresponding NIST AI RMF function and ISO/IEC 42001
+clause.
 
 ## Roadmap / Suggested Improvements
 

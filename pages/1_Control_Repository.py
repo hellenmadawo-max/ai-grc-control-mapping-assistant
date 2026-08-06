@@ -8,13 +8,24 @@ st.title("📚 Framework Control Repository")
 controls = get_all_controls()
 frameworks = get_frameworks()
 
-col1, col2 = st.columns([1, 2])
+entry_types = sorted(set(c.get("entry_type", "control") for c in controls))
+ENTRY_TYPE_LABELS = {
+    "control": "🛡️ Control", "threat": "⚠️ Threat", "attack_technique": "🎯 Attack Technique",
+    "legal_requirement": "⚖️ Legal Requirement",
+}
+
+col1, col2, col3 = st.columns([1, 1, 2])
 with col1:
     fw_filter = st.multiselect("Filter by framework", frameworks, default=frameworks)
 with col2:
+    type_filter = st.multiselect(
+        "Filter by entry type", entry_types, default=entry_types,
+        format_func=lambda t: ENTRY_TYPE_LABELS.get(t, t)
+    )
+with col3:
     search = st.text_input("Search title, description, or keywords")
 
-filtered = [c for c in controls if c["framework"] in fw_filter]
+filtered = [c for c in controls if c["framework"] in fw_filter and c.get("entry_type", "control") in type_filter]
 if search:
     s = search.lower()
     filtered = [c for c in filtered if s in c["title"].lower() or s in (c["description"] or "").lower()
@@ -24,6 +35,7 @@ st.caption(f"Showing {len(filtered)} of {len(controls)} controls")
 
 df = pd.DataFrame([{
     "Framework": c["framework"],
+    "Type": ENTRY_TYPE_LABELS.get(c.get("entry_type", "control"), "Control"),
     "Control ID": c["control_id"],
     "Title": c["title"],
     "Category": c["category"],
@@ -39,6 +51,7 @@ if uid_options:
     control = next(c for c in controls if c["control_uid"] == selected_uid)
 
     st.markdown(f"### {control['framework']} — {control['control_id']}: {control['title']}")
+    st.caption(ENTRY_TYPE_LABELS.get(control.get("entry_type", "control"), "Control"))
     st.write(control["description"])
 
     c1, c2 = st.columns(2)

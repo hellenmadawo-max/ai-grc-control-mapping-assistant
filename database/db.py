@@ -42,11 +42,12 @@ def _seed_controls(conn):
         conn.execute(
             """INSERT OR REPLACE INTO controls
                (control_uid, framework, control_id, title, description, category,
-                keywords, evidence_requirements, testing_procedures)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                keywords, evidence_requirements, testing_procedures, entry_type)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (c["control_uid"], c["framework"], c["control_id"], c["title"],
              c["description"], c["category"], c["keywords"],
-             c["evidence_requirements"], c["testing_procedures"])
+             c["evidence_requirements"], c["testing_procedures"],
+             c.get("entry_type", "control"))
         )
 
 
