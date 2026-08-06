@@ -4,7 +4,8 @@ An AI-powered platform that helps security, risk, and compliance teams map cyber
 controls across multiple frameworks, identify gaps, score risk, and govern AI systems —
 built as a working demonstration of GRC automation for enterprise environments.
 
-**Built by:** Heidi | Sr. Compliance Analyst, Banking & Fintech GRC
+**Built by:** Hellen
+ | Sr. Compliance Analyst, Banking & Fintech GRC
 **Target roles this project is designed to demonstrate readiness for:** AI Governance Analyst,
 AI Risk Analyst, GRC Automation Engineer, Cybersecurity Risk Analyst
 
