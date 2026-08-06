@@ -1,0 +1,19 @@
+Vendor Security Questionnaire Response (Sample)
+
+Q: Describe your encryption practices for data at rest and in transit.
+A: All customer data is encrypted at rest using AES-256 and in transit
+using TLS 1.2 or higher. Key management is handled via a dedicated
+hardware security module with quarterly key rotation.
+
+Q: Describe your incident response process.
+A: We maintain a documented incident response plan tested annually via
+tabletop exercise. All security incidents are logged, triaged within
+one hour, and escalated per severity.
+
+Q: How do you manage third-party/subcontractor risk?
+A: All subcontractors with access to customer data undergo a security
+due diligence review prior to onboarding and annually thereafter.
+
+Q: Describe your vulnerability management program.
+A: We perform monthly vulnerability scans and quarterly penetration
+tests, with critical findings remediated within 15 days.

@@ -1,0 +1,16 @@
+Access Control Policy (Sample)
+
+Purpose: This policy establishes requirements for managing user access to
+information systems that process sensitive customer data.
+
+Requirements:
+1. All privileged and administrative accounts must be provisioned only
+   after documented manager approval.
+2. Multi-factor authentication is required for all privileged accounts
+   and for any remote access into the production environment.
+3. Access to systems containing sensitive data must be reviewed on a
+   quarterly basis by the control owner, with results documented and
+   retained for audit purposes.
+4. User accounts must be disabled within 24 hours of termination as
+   communicated by Human Resources.
+5. Access requests are logged and subject to periodic internal audit.
